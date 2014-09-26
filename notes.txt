@@ -1,0 +1,53 @@
+Ideas
+- Go in structure order
+- Use most-structured data first
+  - lat/lon provided in some format
+  - city name, abbreviated
+  - state name, abbreviated
+  - country name, abbreviated
+  - zip/postal code
+  - airport/iata code
+- Exact string matching
+  - Hash tables (perfect hash?)
+  - Trie
+- Approximate string matching
+  - Levenshtein
+  - Damerau-Levenshtein
+  - levenshtein gem
+- Return multiple locations if listed?
+- Return confidence?
+- DMS to degrees
+  - DMS W/S -> (-)
+  - DMS N/E -> (+)
+  - decimal degree = degrees + minutes/60 + seconds/3600
+
+Sources
+- worldcitiespop.txt.gz: https://www.maxmind.com/en/worldcities
+- GlobalAirportDatabase.zip: http://www.partow.net/miscellaneous/airportdatabase
+  - Field 01 - ICAO Code: 4 character ICAO code
+  - Field 02 - IATA Code: 3 character IATA code
+  - Field 03 - Airport Name: string of varying length
+  - Field 04 - City,Town or Suburb: string of varying length
+  - Field 05 - Country: string of varying length
+  - Field 06 - Latitude Degrees: 2 ASCII characters representing one numeric value
+  - Field 07 - Latitude Minutes: 2 ASCII characters representing one numeric value
+  - Field 08 - Latitude Seconds: 2 ASCII characters representing one numeric value
+  - Field 09 - Latitude Direction: 1 ASCII character either N or S representing compass direction
+  - Field 10 - Longitude Degrees: 2 ASCII characters representing one numeric value
+  - Field 11 - Longitude Minutes: 2 ASCII characters representing one numeric value
+  - Field 12 - Longitude Seconds: 2 ASCII characters representing one numeric value
+  - Field 13 - Longitude Direction: 1 ASCII character either E or W representing compass direction
+  - Field 14 - Altitude: varying sequence of ASCII characters representing a numeric value corresponding to the airport's altitude from mean sea level (ie: "123" or "-123")
+- GlobalPostalCodes.zip: http://download.geonames.org/export/zip/allCountries.zip
+  - country code      : iso country code, 2 characters
+  - postal code       : varchar(20)
+  - place name        : varchar(180)
+  - admin name1       : 1. order subdivision (state) varchar(100)
+  - admin code1       : 1. order subdivision (state) varchar(20)
+  - admin name2       : 2. order subdivision (county/province) varchar(100)
+  - admin code2       : 2. order subdivision (county/province) varchar(20)
+  - admin name3       : 3. order subdivision (community) varchar(100)
+  - admin code3       : 3. order subdivision (community) varchar(20)
+  - latitude          : estimated latitude (wgs84)
+  - longitude         : estimated longitude (wgs84)
+  - accuracy          : accuracy of lat/lng from 1=estimated to 6=centroid
